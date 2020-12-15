@@ -279,7 +279,7 @@ import { getApiURL } from "../../utils/utils"
                         cpf: cpf,
                         sexo: sexo,
                         celular: celular,
-                        dtNasc: dataNasc,
+                        dataNasc: dataNasc,
                         endereco: {
                             logradouro: logradouro,
                             numero: numero,
