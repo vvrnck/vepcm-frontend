@@ -136,7 +136,7 @@ export default {
     },
     methods: {
         getAllSolicitacoes() {
-            const url = getApiURL() + 'solicitacao';
+            const url = getApiURL() + 'solicitacao/responsavel/' + getUser().id;
             axios.get(url).then(response => {
                 const { data } = response;
                 this.solicitacoes = data;
