@@ -12,7 +12,7 @@
         <v-card-text>
           <v-container>
             <v-row>
-              <v-col
+              <!-- <v-col
                 cols="6"
                 sm="6"
                 md="6"
@@ -71,17 +71,17 @@
                     </v-btn>
                   </v-date-picker>
                 </v-dialog>
-              </v-col>
+              </v-col> -->
 
               <v-col 
-                cols="4"
+                cols="12"
                 sm="12"
-                md="4"
+                md="12"
               >
                 <v-select
                   prepend-icon="mdi-school"
                   :items="alunosItems"
-                  label="Alunos*"
+                  label="Aluno*"
                   v-model="fields.aluno"
                   required
                   name="aluno"
@@ -90,9 +90,9 @@
               </v-col>
 
               <v-col
-                cols="4"
+                cols="14"
                 sm="12"
-                md="4"
+                md="12"
               >
                 <v-select
                   prepend-icon="mdi-home"
@@ -105,7 +105,7 @@
                 ></v-select>
               </v-col>
            
-              <v-col cols="12" sm="4" md="4">
+              <v-col cols="12" sm="12" md="12">
                 <v-select
                     prepend-icon="mdi-calendar-clock"
                   :items="anosEscolaresItems"
@@ -228,15 +228,19 @@ export default {
         },   
         save() {
             const url = getApiURL() + 'solicitacao';
-            const { protocolo, data, unidadeEscolar, aluno, anoEscolar  } = this.fields;
+            const { unidadeEscolar, aluno, anoEscolar  } = this.fields;
 
             let sendAluno = this.alunos.find(a => a.pessoa.nome == aluno);
             let sendUnidadeEscolar = this.unidadesEscolares.find(ue => ue.nome == unidadeEscolar);
             let sendAnoEscolar = this.anosEscolares.find(ae => ae.nome == anoEscolar);
             
+            let newProtocolo = 'PRT-' + Math.floor(Math.random() * 1000);
+
+            let newDate = new Date().toLocaleDateString('pt-BR') + ' - ' + new Date().getHours() + ':' + new Date().getMinutes();
+            
             const sendData = {
-                protocolo: protocolo,
-                data: data,
+                protocolo: newProtocolo,
+                data: newDate,
                 idResponsavel: getUser().id,
                 idAluno: sendAluno.id,
                 idUnidadeEscolar: sendUnidadeEscolar.id,

@@ -183,10 +183,6 @@ export default {
             this.info = newInfo;
             this.show = true;
             console.log(this.info)
-         
-            
-            
-            
         }
     }
 }
