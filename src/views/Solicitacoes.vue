@@ -43,7 +43,7 @@
                   <v-flex d-flex class="mt-5">
                     <v-layout wrap>
                         <v-flex md12 >
-                                <v-list elevation="3">
+                                <v-list elevation="3" v-if="solicitacoes.length > 0">
                                     <v-list-group
                                         v-for="solicitacao in solicitacoes" 
                                         :key="solicitacao.id"
